@@ -3,6 +3,7 @@ import cors from 'cors';
 import { CarRoute } from './module/Car/car.route';
 import { globalErrorHandler } from './middlewares/globalErrorHandler';
 import { notFound } from './middlewares/notFound';
+import { OrderRoute } from './module/Order/order.route';
 const app: Application = express();
 
 // parser
@@ -11,6 +12,7 @@ app.use(cors());
 
 // application routes
 app.use('/api/cars', CarRoute);
+app.use('/api/orders', OrderRoute);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Server is running');
